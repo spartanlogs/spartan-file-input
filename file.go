@@ -44,7 +44,9 @@ func newFileInput(options utils.InterfaceMap) (inputs.Input, error) {
 }
 
 func (i *FileInput) setConfig(options utils.InterfaceMap) error {
-	if err := config.VerifySettings(options, fileConfigSchema); err != nil {
+	var err error
+	options, err = config.VerifySettings(options, fileConfigSchema)
+	if err != nil {
 		return err
 	}
 
