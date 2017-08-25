@@ -31,6 +31,7 @@ var fileConfigSchema = []config.Setting{
 // A FileInput will read a file and optionally tail it. Each line is considered
 // a separate event.
 type FileInput struct {
+	inputs.BaseInput
 	config *fileConfig
 	t      tomb.Tomb
 	out    chan<- *event.Event
